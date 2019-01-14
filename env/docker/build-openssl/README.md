@@ -1,4 +1,4 @@
-#Howto
+# Howto
 
 This docker image allows to build OpenSSL (currently version 1.0.2q) for Android. In order to do so, follow the given instructions: 
 

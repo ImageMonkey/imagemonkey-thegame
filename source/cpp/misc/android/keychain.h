@@ -13,7 +13,6 @@ namespace android {
     public:
         KeyChain(QObject* parent = 0);
         Q_INVOKABLE void setJwt(const QString& jwt);
-        Q_INVOKABLE QString getJwt(const bool fromService) const;
         Q_INVOKABLE QString getJwt() const;
         ~KeyChain();
     private:

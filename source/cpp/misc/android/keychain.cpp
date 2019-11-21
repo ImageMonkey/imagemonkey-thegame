@@ -28,7 +28,7 @@ namespace android {
         m_jwt = jwt; //cache plain jwt in member variable
     }
 
-    QString KeyChain::getJwt(const bool fromService) const{
+    QString KeyChain::getJwt() const{
         if(m_jwt != "") //if jwt already cached, return cached jwt
             return m_jwt;
 
@@ -37,26 +37,14 @@ namespace android {
         QAndroidJniObject jwtStr = QAndroidJniObject::fromString(jwt);
         QAndroidJniObject result;
 
-        if(!fromService){
-            QAndroidJniObject activity =  QtAndroid::androidActivity();
-            QAndroidJniObject appContext = activity.callObjectMethod("getApplicationContext","()Landroid/content/Context;");
-            result = QAndroidJniObject::callStaticObjectMethod("io/imagemonkey/thegame/JavaNatives",
+
+        QAndroidJniObject activity =  QtAndroid::androidActivity();
+        QAndroidJniObject appContext = activity.callObjectMethod("getApplicationContext","()Landroid/content/Context;");
+        result = QAndroidJniObject::callStaticObjectMethod("io/imagemonkey/thegame/JavaNatives",
                                                       "decrypt",
                                                       "(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;",
                                                       appContext.object<jobject>(), jwtStr.object<jstring>());
-        }
-        else{
-            QAndroidJniObject service =  QtAndroid::androidService();
-            result = QAndroidJniObject::callStaticObjectMethod("io/imagemonkey/thegame/JavaNatives",
-                                                      "decrypt",
-                                                      "(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;",
-                                                      service.object<jobject>(), jwtStr.object<jstring>());
-        }
         return result.toString();
-    }
-
-    QString KeyChain::getJwt() const{
-        return getJwt(false);
     }
 
     QString KeyChain::get(const QString& key) const{

@@ -1,11 +1,16 @@
 QT += qml quick quickcontrols2
 
+android {
+    # https://bugreports.qt.io/browse/QTBUG-76293
+    !versionAtLeast(QT_VERSION, "5.14.0"): QMAKE_LFLAGS += -nostdlib++
+}
+
 android{
     Qt += androidextras
 }
 
 #LOCAL, TEST, PRODUCTION
-_EXECUTIONTARGET_ = "LOCAL"
+_EXECUTIONTARGET_ = "TEST"
 
 QT_executiontarget = "$${LITERAL_HASH}ifndef __EXECUTIONTARGET__H__"
 QT_executiontarget += "$${LITERAL_HASH}define __EXECUTIONTARGET__H__"
@@ -109,10 +114,15 @@ windows{
     SOURCES += source/cpp/misc/windows/keychain.cpp
 }
 
+linux:!android{
+    HEADERS += source/cpp/misc/linux/keychain.h
+    SOURCES += source/cpp/misc/linux/keychain.cpp
+}
+
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
     ANDROID_EXTRA_LIBS = \
-        $$PWD/ext/libraries/android/openssl/openssl1.0.2j/libcrypto.so \
-        $$PWD/ext/libraries/android/openssl/openssl1.0.2j/libssl.so
+        $$PWD/ext/libraries/android/openssl/openssl1.0.2q/libcrypto.so \
+        $$PWD/ext/libraries/android/openssl/openssl1.0.2q/libssl.so
 }
 
 

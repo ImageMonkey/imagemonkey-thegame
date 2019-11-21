@@ -132,6 +132,7 @@ BlankScreen {
             anchors.bottomMargin: 15 * settings.pixelDensity
             width: 20 * settings.pixelDensity
             height: width
+            font.family: materialDesignLoader.name
             text: "\ue412"
             opacity: 1
             font.pixelSize: 8 * settings.pixelDensity

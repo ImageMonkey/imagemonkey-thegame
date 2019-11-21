@@ -71,14 +71,17 @@ BlankScreen {
             TabButton {
                 text: qsTr("Tasks")
                 font.family: adventuresFontLoader.name
+                font.pixelSize: 7 * settings.pixelDensity
             }
             TabButton {
                 text: qsTr("Badges")
                 font.family: adventuresFontLoader.name
+                font.pixelSize: 7 * settings.pixelDensity
             }
             TabButton {
                 text: qsTr("Rules")
                 font.family: adventuresFontLoader.name
+                font.pixelSize: 7 * settings.pixelDensity
             }
         }
 

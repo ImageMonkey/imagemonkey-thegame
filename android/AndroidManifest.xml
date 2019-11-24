@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<manifest package="io.imagemonkey.thegame" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" android:versionCode="11" android:installLocation="auto">
+<manifest package="io.imagemonkey.thegame" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" android:versionCode="12" android:installLocation="auto">
     <application android:hardwareAccelerated="true" android:theme="@style/AppTheme" android:name="io.imagemonkey.thegame.MyApplication" android:label="ImageMonkey - The Game" android:icon="@drawable/icon">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation" android:name="io.imagemonkey.thegame.Main" android:label="ImageMonkey - The Game" android:screenOrientation="portrait" android:launchMode="singleTop">
             <intent-filter>
@@ -63,7 +63,7 @@
 
     </application>
 
-    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="21"/>
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="28"/>
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 
     <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.

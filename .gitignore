@@ -5,3 +5,4 @@ android/gradle.properties~
 android/local.properties
 android/local.properties~
 source/cpp/misc/secrets.h
+env/docker/build-openssl/output

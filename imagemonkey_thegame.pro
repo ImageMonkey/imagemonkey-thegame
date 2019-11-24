@@ -121,8 +121,8 @@ linux:!android{
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
     ANDROID_EXTRA_LIBS = \
-        $$PWD/ext/libraries/android/openssl/openssl1.0.2q/libcrypto.so \
-        $$PWD/ext/libraries/android/openssl/openssl1.0.2q/libssl.so
+        $$PWD/ext/libraries/android/openssl/openssl1.0.2t/libcrypto.so \
+        $$PWD/ext/libraries/android/openssl/openssl1.0.2t/libssl.so
 }
 
 

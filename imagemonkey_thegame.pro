@@ -1,8 +1,13 @@
 QT += qml quick quickcontrols2
 
+#ANDROID_ABIS="arm64-v8a armeabi-v7a x86_64 x86"
+#ANDROID_ABIS=armeabi-v7a
+
 android {
     # https://bugreports.qt.io/browse/QTBUG-76293
     !versionAtLeast(QT_VERSION, "5.14.0"): QMAKE_LFLAGS += -nostdlib++
+
+    #include (./ext/libraries/android/android_openssl/openssl.pri)
 }
 
 android{
@@ -121,10 +126,15 @@ linux:!android{
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
     ANDROID_EXTRA_LIBS = \
-        $$PWD/ext/libraries/android/openssl/openssl1.0.2t/libcrypto.so \
-        $$PWD/ext/libraries/android/openssl/openssl1.0.2t/libssl.so
+        $$PWD/ext/libraries/android/openssl/openssl1.0.2t/armeabi-v7a/libcrypto.so \
+        $$PWD/ext/libraries/android/openssl/openssl1.0.2t/armeabi-v7a/libssl.so
 }
 
+contains(ANDROID_TARGET_ARCH,arm64-v8a) {
+    ANDROID_EXTRA_LIBS = \
+        $$PWD/ext/libraries/android/openssl/openssl1.0.2t/aarch64/libcrypto.so \
+        $$PWD/ext/libraries/android/openssl/openssl1.0.2t/aarch64/libssl.so
+}
 
 
 DISTFILES += \

@@ -64,15 +64,16 @@ class JavaNatives{
     }
 
     public static String decrypt(Context context, String str) {
-        if(str != "") {
+        if(str != "" && str.length() != 0) {
             Store store = new Store(context);
             if(!store.hasKey(SHARED_PREFENCE_NAME)) {
                 store.generateSymmetricKey(SHARED_PREFENCE_NAME, null);
             }
             SecretKey key = store.getSymmetricKey(SHARED_PREFENCE_NAME, null);
             Crypto crypto = new Crypto(Options.TRANSFORMATION_SYMMETRIC);
-            Log.i(TAG, "str = " + str);
-            Log.i(TAG, "key = " + key);
+            //Log.i(TAG, "str = " + str);
+            //Log.i(TAG, "str length = " + str.length());
+            //Log.i(TAG, "key = " + key);
             String decryptedData = crypto.decrypt(str, key);
 
             return decryptedData;

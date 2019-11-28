@@ -3,11 +3,11 @@
     <item>
         <shape android:shape="rectangle" >
             <!--when changing the background color here, change it also in apptheme.xml-->
-            <solid android:color="#f64500"/>
+            <solid android:color="#004847"/>
         </shape>
     </item>
     <item>
-         <bitmap android:src="@drawable/imagemonkey_logo"
+         <bitmap android:src="@drawable/splash_screen_logo"
         android:gravity="center" />
     </item>
 </layer-list>

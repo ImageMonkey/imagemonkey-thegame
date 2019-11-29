@@ -55,8 +55,8 @@ BlankItem {
         var achievements = data.achievements;
         for(var i = 0; i < achievements.length; i++) {
             statsModel.append({"name": achievements[i].name, "description": achievements[i].description,
-                               "accomplished": achievements[i].accomplished,
-                               "badge": achievements[i].badge});
+                                   "accomplished": achievements[i].accomplished,
+                                   "badge": achievements[i].badge});
         }
         internalState.statsPopulated = true;
     }
@@ -97,6 +97,13 @@ BlankItem {
             spacing: 5 * settings.pixelDensity
             clip: true
 
+            Component.onCompleted: {
+                if(Qt.platform.os === "android") {
+                    if(settings.pixelDensity > 1)
+                        statsList.maximumFlickVelocity = statsList.maximumFlickVelocity * settings.pixelDensity;
+                }
+            }
+
             delegate: Item {
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -111,7 +118,7 @@ BlankItem {
                     Material.background: colorPalette.secondaryColor
                     Material.elevation: 8
                     visible: true
-                    opacity: (accomplished === "true") ? 1.0 : 0.4
+                    opacity: (accomplished === true) ? 1.0 : 0.4
                 }
 
                 Image {

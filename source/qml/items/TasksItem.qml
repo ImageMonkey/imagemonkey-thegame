@@ -151,8 +151,10 @@ BlankItem {
             spacing: 5 * settings.pixelDensity
             clip: true
             Component.onCompleted: {
-                if(settings.pixelDensity > 1)
-                    tasksList.maximumFlickVelocity = tasksList.maximumFlickVelocity * settings.pixelDensity;
+                if(Qt.platform.os === "android") {
+                    if(settings.pixelDensity > 1)
+                        tasksList.maximumFlickVelocity = tasksList.maximumFlickVelocity * settings.pixelDensity;
+                }
             }
 
             delegate: Item {

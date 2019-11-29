@@ -49,7 +49,7 @@ BlankItem {
         }*/
 
         ListView {
-            id: statsList
+            id: rulesList
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
@@ -58,6 +58,13 @@ BlankItem {
             model: rulesModel
             spacing: 5 * settings.pixelDensity
             clip: true
+
+            Component.onCompleted: {
+                if(Qt.platform.os === "android") {
+                    if(settings.pixelDensity > 1)
+                        rulesList.maximumFlickVelocity = rulesList.maximumFlickVelocity * settings.pixelDensity;
+                }
+            }
 
             delegate: Item {
                 anchors.left: parent.left

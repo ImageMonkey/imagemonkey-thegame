@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<manifest package="io.imagemonkey.thegame" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" android:versionCode="12" android:installLocation="auto">
-    <application android:hardwareAccelerated="true" android:theme="@style/AppTheme" android:name="io.imagemonkey.thegame.MyApplication" android:label="ImageMonkey - The Game" android:icon="@drawable/icon">
+<manifest package="io.imagemonkey.thegame" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" android:versionCode="13" android:installLocation="auto">
+    <application android:hardwareAccelerated="true" android:theme="@style/AppTheme" android:name="io.imagemonkey.thegame.MyApplication" android:label="ImageMonkey - The Game" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation" android:name="io.imagemonkey.thegame.Main" android:label="ImageMonkey - The Game" android:screenOrientation="portrait" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -76,4 +76,5 @@
 
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.CAMERA"/>
 </manifest>
